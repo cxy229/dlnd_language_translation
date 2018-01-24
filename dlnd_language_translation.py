@@ -163,7 +163,7 @@ def model_inputs():
     max target sequence length, source sequence length)
     """
     # TODO: Implement Function
-    input = tf.placeholder(tf.int32,shape=[None, None],name='input')
+    inputs = tf.placeholder(tf.int32,shape=[None, None],name='input')
     targets = tf.placeholder(tf.int32,shape=[None, None],name='targets')
     learning_rate = tf.placeholder(tf.float32,shape=[],name='learningrate')
     keep_prob = tf.placeholder(tf.float32,shape=[],name='keep_prob')
@@ -172,7 +172,7 @@ def model_inputs():
     source_sequence_length = tf.placeholder(tf.int32,shape=[None,],name='source_sequence_length')
     
     
-    return input,targets,learning_rate,keep_prob,target_sequence_length,max_target_length,source_sequence_length
+    return inputs,targets,learning_rate,keep_prob,target_sequence_length,max_target_length,source_sequence_length
 
 
 """
@@ -196,8 +196,8 @@ def process_decoder_input(target_data, target_vocab_to_int, batch_size):
     """
     # TODO: Implement Function
     ending = tf.strided_slice(target_data, [0,0], [batch_size, -1], [1,1])
-    decoder_input = tf.concat([tf.fill([batch_size,1], target_vocab_to_int['<GO>']), ending], 1)
-    return decoder_input
+    decoder_inputs = tf.concat([tf.fill([batch_size,1], target_vocab_to_int['<GO>']), ending], 1)
+    return decoder_inputs
 
 """
 DON'T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE
