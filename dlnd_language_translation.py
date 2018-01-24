@@ -481,7 +481,7 @@ tests.test_seq2seq_model(seq2seq_model)
 # - Set `keep_probability` to the Dropout keep probability
 # - Set `display_step` to state how many steps between each debug output statement
 
-# In[14]:
+# In[35]:
 
 # Number of Epochs
 epochs = 10
@@ -504,7 +504,7 @@ display_step = 10
 # ### Build the Graph
 # Build the graph using the neural network you implemented.
 
-# In[15]:
+# In[36]:
 
 """
 DON'T MODIFY ANYTHING IN THIS CELL
@@ -559,7 +559,7 @@ with train_graph.as_default():
 
 # Batch and pad the source and target sequences
 
-# In[16]:
+# In[37]:
 
 """
 DON'T MODIFY ANYTHING IN THIS CELL
@@ -598,7 +598,7 @@ def get_batches(sources, targets, batch_size, source_pad_int, target_pad_int):
 # ### Train
 # Train the neural network on the preprocessed data. If you have a hard time getting a good loss, check the forms to see if anyone is having the same problem.
 
-# In[17]:
+# In[38]:
 
 """
 DON'T MODIFY ANYTHING IN THIS CELL
@@ -684,7 +684,7 @@ with tf.Session(graph=train_graph) as sess:
 # ### Save Parameters
 # Save the `batch_size` and `save_path` parameters for inference.
 
-# In[18]:
+# In[39]:
 
 """
 DON'T MODIFY ANYTHING IN THIS CELL
@@ -695,7 +695,7 @@ helper.save_params(save_path)
 
 # # Checkpoint
 
-# In[19]:
+# In[40]:
 
 """
 DON'T MODIFY ANYTHING IN THIS CELL
@@ -716,7 +716,7 @@ load_path = helper.load_params()
 # - Convert words into ids using `vocab_to_int`
 #  - Convert words not in the vocabulary, to the `<UNK>` word id.
 
-# In[20]:
+# In[41]:
 
 def sentence_to_seq(sentence, vocab_to_int):
     """
@@ -739,10 +739,9 @@ tests.test_sentence_to_seq(sentence_to_seq)
 # ## Translate
 # This will translate `translate_sentence` from English to French.
 
-# In[21]:
+# In[46]:
 
 translate_sentence = 'he saw a old yellow truck .'
-
 
 """
 DON'T MODIFY ANYTHING IN THIS CELL
