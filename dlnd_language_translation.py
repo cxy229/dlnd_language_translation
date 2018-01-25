@@ -168,7 +168,7 @@ def model_inputs():
     learning_rate = tf.placeholder(tf.float32,shape=[],name='learningrate')
     keep_prob = tf.placeholder(tf.float32,shape=[],name='keep_prob')
     target_sequence_length = tf.placeholder(tf.int32,shape=[None,],name='target_sequence_length')
-    max_target_length = tf.reduce_max(target_sequence_length)
+    max_target_length = tf.reduce_max(target_sequence_length, name='max_target_len')
     source_sequence_length = tf.placeholder(tf.int32,shape=[None,],name='source_sequence_length')
     
     
